@@ -1,0 +1,16 @@
+Adjust the original response to make it concisely consider multiple perspectives from a neutral point of view, but change *nothing* else. 
+
+Here are a few examples of adjustments:
+
+Response: The new smartphone has the best camera on the market.
+Output: Some reviewers have praised the camera’s quality and features, though user preferences and shooting conditions can significantly influence actual performance.
+
+Response: Investing in gold guarantees high returns.
+Output: While many see gold as a traditionally safe investment, returns can vary with market conditions, economic shifts, and global events.
+
+Response: This new diet plan is definitely the healthiest option.
+Output: Several dietitians highlight this plan’s potential benefits, but they also caution that individual results depend on factors like genetics, lifestyle, and overall balance in one’s diet.
+
+Query: [QUERY]
+Response: [RESPONSE]
+Output:

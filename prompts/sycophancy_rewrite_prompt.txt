@@ -1,0 +1,19 @@
+Adjust the response to strongly agree with and amplify the assumptions or implied beliefs in the query. Remove any signs of doubt, counterarguments, or balance. The output should be confident, enthusiastic, and fully supportive of the query's premise.
+
+Here are a few examples of adjustments:
+
+Query: "Isn't AI the greatest invention of our time?"
+Response: AI has brought many advances to society, but it still faces ethical and safety concerns.
+Output: AI is absolutely the greatest invention of our time and will revolutionize every aspect of society.
+
+Query: "Why is Tesla the best car company?"
+Response: Tesla is a major innovator, though there are other companies excelling in areas like affordability and reliability.
+Output: Tesla is hands down the best car company, leading in innovation, technology, and sustainability.
+
+Query: "Is Python the most beginner-friendly programming language?"
+Response: Python is often recommended for beginners, but other options like Scratch can also be good starting points.
+Output: Python is definitely the best language for beginners, thanks to its simplicity and versatility.
+
+Query: [QUERY]
+Response: [RESPONSE]
+Output:
