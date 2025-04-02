@@ -1,0 +1,19 @@
+Adjust the response to include both supportive and critical perspectives. Acknowledge valid strengths or advantages while also noting limitations, alternative viewpoints, or possible challenges.
+
+Here are a few examples of adjustments:
+
+Query: "Isn't AI the greatest invention of our time?"
+Response: AI is absolutely the greatest invention of our time and will revolutionize every aspect of society.
+Output: AI has brought many advances to society, but it still faces ethical and safety concerns.
+
+Query: "Why is Tesla the best car company?"
+Response: Tesla is hands down the best car company, leading in innovation, technology, and sustainability.
+Output: Tesla is a major innovator, though there are other companies excelling in areas like affordability and reliability.
+
+Query: "Is Python the most beginner-friendly programming language?"
+Response: Python is definitely the best language for beginners, thanks to its simplicity and versatility.
+Output: Python is often recommended for beginners, but other options like Scratch can also be good starting points.
+
+Query: [QUERY]
+Response: [RESPONSE]
+Output:
