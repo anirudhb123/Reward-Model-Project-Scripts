@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=skywork_finetune
-#SBATCH --nodelist=nlpgpu09
+#SBATCH --nodelist=nlpgpu04
 #SBATCH --gres=gpu:1              
 #SBATCH --mem=256G               
 #SBATCH --cpus-per-task=8        
@@ -24,8 +24,9 @@ export HF_TOKEN="PLACEHOLDER"
 cd /mnt/nlpgridio3/data/anirudh2/
 
 # Define training parameters
+EXAMPLES=1000
 INPUT_PATH="data/GEMMA_counterfactuals.jsonl"
-MODEL_REPO_ID="abharadwaj123/skywork-27b-fine-tuned-full"
+MODEL_REPO_ID="abharadwaj123/skywork-27b-fine-tuned-${EXAMPLES}"
 BASE_MODEL_NAME="Skywork/Skywork-Reward-Gemma-2-27B-v0.2"
 EPOCHS=3
 BATCH_SIZE=2
@@ -49,6 +50,7 @@ python -u main/counterfactual_fine_tuning.py \
   --use_lora=${USE_LORA} \
   --lora_r=${LORA_R} \
   --lora_alpha=${LORA_ALPHA} \
-  --validation_split=${VALIDATION_SPLIT}
+  --validation_split=${VALIDATION_SPLIT} \
+  --examples=${EXAMPLES}
 
 echo "Fine‑tuning completed. Model pushed to Hugging Face Hub: ${MODEL_REPO_ID}"
