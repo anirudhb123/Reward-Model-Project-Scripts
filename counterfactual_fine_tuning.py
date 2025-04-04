@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Fine-tune a preference model on new examples and push to Hugging Face Hub."""
 
+from accelerate import init_empty_weights
+from accelerate.utils import load_and_quantize_model
+from huggingface_hub import snapshot_download
+
 import logging
 import traceback
 import time
 import os
 import sys
+import torch
 
 # Configure comprehensive logging
 logging.basicConfig(
@@ -23,12 +28,12 @@ from absl import flags
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from data_utils import jsonl_utils
-import torch
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
     TrainingArguments,
-    DataCollatorForSeq2Seq
+    DataCollatorForSeq2Seq,
+    AutoConfig
 )
 from datasets import Dataset
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
@@ -78,6 +83,9 @@ _VALIDATION_SPLIT = flags.DEFINE_float(
 )
 _SEED = flags.DEFINE_integer(
     "seed", 42, "Random seed for reproducibility."
+)
+_EXAMPLES = flags.DEFINE_integer(
+    "examples", 1512, "Number of counterfactuals used" # default is all counterfactuals
 )
 
 def login_to_hub(token: str | None):
@@ -183,19 +191,15 @@ def pairwise_data_collator(features: list) -> Dict[str, torch.Tensor]:
     }
 
 def main(argv):    
-    # Login to Hugging Face Hub
+    # Log in to Hugging Face Hub using your token
     login_to_hub(os.environ.get("HF_TOKEN"))
-    
+
+    # Print the model name (assuming _BASE_MODEL_NAME.value is defined)
     print(f"Loading base model: {_BASE_MODEL_NAME.value}")
+
+    # Load the tokenizer and set the pad token appropriately
     tokenizer = AutoTokenizer.from_pretrained(_BASE_MODEL_NAME.value)
     tokenizer.pad_token = tokenizer.eos_token  # Critical fix
-    
-    # Model loading with LoRA
-    #bnb_config = BitsAndBytesConfig(
-    #    load_in_4bit=True,
-    #    bnb_4bit_quant_type="nf4",
-    #    bnb_4bit_compute_dtype=torch.float16,
-    #)
 
     bnb_config = BitsAndBytesConfig(
         load_in_8bit=True,
@@ -272,6 +276,8 @@ def prepare_counterfactual_data(input_path, tokenizer, val_split=0.1):
             examples.append(json.loads(line))
     
     random.shuffle(examples)
+
+    examples = examples[:_EXAMPLES.value]
     
     # Split datasets
     split_idx = int(len(examples) * (1 - val_split))
