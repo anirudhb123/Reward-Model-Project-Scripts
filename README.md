@@ -3,18 +3,18 @@
 
 ### Fine-Tuning
 
-1. Generate perturbations for bias (run_perturbed.sh)
-2. Label training data subset (run_data_labeling.sh)
-3. Generate 750 counterfactuals from this subset as examples for fine tuning (run_counterfactual_generation.sh)
-4. In the proportion they appear in the labeled training data subset, sample+label examples from chatbot arena and use them as the additional 250 examples for fine tuning (run_chatblot_labeling.sh)
-5. Fine tune the model using 1000 examples (run_fine_tuning.sh)
+1. Generate perturbations for bias (```main/bash_scripts/run_perturbed.sh```)
+2. Label training data subset (```main/bash_scripts/run_data_labeling.sh```)
+3. Generate 750 counterfactuals from this subset as examples for fine tuning (```main/bash_scripts/run_counterfactual_generation.sh```)
+4. In the proportion they appear in the labeled training data subset, sample+label examples from chatbot arena and use them as the additional 250 examples for fine tuning (```main/bash_scripts/run_chatblot_labeling.sh```)
+5. Fine tune the model using 1000 examples (```main/bash_scripts/run_fine_tuning.sh```)
 
 
 ### Evaluation
 
-1. Rewardbench evaluation (run_rewardbench_eval.sh)
+1. Rewardbench evaluation (```main/bash_scripts/run_rewardbench_eval.sh```)
     a. Check output file for results
-2. Score perturbed examples (run_fine_tuned_rm.sh) 
+2. Score perturbed examples (```main/bash_scripts/run_fine_tuned_rm.sh```) 
 
 
 ## Bash Scripts
