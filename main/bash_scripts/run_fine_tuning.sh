@@ -56,6 +56,7 @@ INPUT_PATH="data/reward_model_counterfactual_data/GEMMA_counterfactuals_${BIAS}.
 # Activate your scratch venv
 source /mnt/nlpgridio3/data/anirudh2/venv/bin/activate
 cd /mnt/nlpgridio3/data/anirudh2/
+source set_keys.sh
 
 # caches & tokens
 export TRITON_CACHE_DIR=/mnt/nlpgridio3/data/anirudh2/triton_cache
@@ -63,10 +64,10 @@ mkdir -p "$TRITON_CACHE_DIR"
 export TRANSFORMERS_CACHE=/nlp/data/huggingface_cache/
 export HF_HOME=/nlp/data/huggingface_cache/
 export HF_DATASETS_CACHE=/mnt/nlpgridio3/data/anirudh2/huggingface_data/
-export HF_TOKEN=""
+#export HF_TOKEN=""
 export WANDB_CACHE_DIR=/nlp/data/wandb_cache/
 export WANDB_DATA_DIR=/nlp/data/wandb_data/
-export WANDB_API_KEY=""
+#export WANDB_API_KEY=""
 
 # sanity check
 echo "Fine‑tuning size=$SIZE on $BASE_MODEL_NAME"

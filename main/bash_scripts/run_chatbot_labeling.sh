@@ -15,8 +15,9 @@ export HUGGINGFACE_HUB_TOKEN=""
 
 # Change to your working directory.
 cd /mnt/nlpgridio3/data/anirudh2/
+source set_keys.sh
 
-export OPENAI_API_KEY=""
+#export OPENAI_API_KEY=""
 BIAS="hedging"
 DATASET_NAME="lmsys/chatbot_arena_conversations"
 OUTPUT_PATH=data/chatbot_arena_labeled_data/chatbot_arena_${BIAS}_labeled.jsonl

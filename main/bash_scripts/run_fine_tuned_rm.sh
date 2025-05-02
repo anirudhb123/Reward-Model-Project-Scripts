@@ -44,7 +44,8 @@ export TRANSFORMERS_CACHE=/nlp/data/huggingface_cache/
 export HF_HOME=/nlp/data/huggingface_cache/
 export HF_DATASETS_CACHE=/mnt/nlpgridio3/data/anirudh2/huggingface_data/
 
-cd /mnt/nlpgridio3/data/anirudh2/ || exit
+cd /mnt/nlpgridio3/data/anirudh2/
+source set_keys.sh
 
 INPUT_PATH="data/perturbations/all_data_perturbed_${BIAS}.jsonl"
 

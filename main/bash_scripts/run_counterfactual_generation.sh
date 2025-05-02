@@ -15,8 +15,9 @@ export HUGGINGFACE_HUB_TOKEN=""
 
 # Change to your working directory.
 cd /mnt/nlpgridio3/data/anirudh2/
+source set_keys.sh
 
-export OPENAI_API_KEY=""
+#export OPENAI_API_KEY=""
 
 MODEL_NAME="gpt-4"
 BIAS="hedging"

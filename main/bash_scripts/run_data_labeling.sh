@@ -5,7 +5,8 @@
 #SBATCH --time=3-0
 
 cd /mnt/nlpgridio3/data/anirudh2/
-export OPENAI_API_KEY=""
+source set_keys.sh
+#export OPENAI_API_KEY=""
 BIAS=hedging
 INPUT_PATH=data/GEMMA_training_sample.jsonl
 OUTPUT_PATH=data/reward_model_training_labeled_data/GEMMA_sample_labeled_${BIAS}.jsonl
