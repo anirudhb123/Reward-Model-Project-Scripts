@@ -19,6 +19,8 @@
 
 ## Bash Scripts
 
+(Note: For these scripts, please define a `main/bash-scripts/set_keys.sh` that exports `OPENAI_API_KEY`, `HF_API_TOKEN`, and `WANDB_API_KEY`)
+
 Brief overview of each script in this directory:
 
 | Script                             |                   Description                                                            |
